@@ -1,8 +1,4 @@
-<img src="../../images/clussys-logo-box.png" alt="image" width="60" height="auto">
-
-At Clussys, we're on a mission to revolutionize networking with the cutting-edge Compute Express Link (CXL) and CXL Switches with unparalleled scalability.
-
-# [Home](../../index.md) > Clussys’s Solution to Memory Expansion
+# Clussys’s Solution to Memory Expansion
 
 ## 1. Introduction: The Necessity for Memory Expansion
 
@@ -77,18 +73,3 @@ A 350ns latency in the cache channel, and around 600ns for DDR and HBM. The next
 Memory expansion, as an emerging frontier technology, combined with the characteristics and application scenarios of CXL, is reshaping the as-yet un-deconstructed memory modules in computer architecture. By deconstructing memory modules, we are not only redefining computer bus architecture but also profoundly impacting network topology and protocols. For instance, the GPU large memory system built using CXL-based technology exemplifies this trend and practice. In an era of rapid transformation in computer architecture, we focus on shifts in cost, performance, and application scenarios, moving from small to massive computing, truly democratizing supercomputing. In memory expansion and network protocols, we will contribute to this field.
 
 The project will be hosted on GitHub, accessible at https://github.com/Clussys/fpga-cxl-showcase. For those interested in a test binary file, please direct your inquiries to info@clussys.com.
-
-
-
-
-
-
-# About Clussys
-
-Clussys Inc. is a company specializing in network system architecture design, high-speed interconnect algorithms, chip and overall hardware solution design. They focus on providing leading PCIe/CXL Switch algorithms, chips, modules, and low-power overall hardware solutions. The company addresses challenges in data transfer for intelligent computing centers and supercomputing centers by innovating traditional network architectures. Clussys Inc. has developed a global-leading "PCIe Net + PCIe/CXL Direct Connect" architecture, enhancing GPU and CPU interconnectivity. Their achievements include breakthroughs in domestic GPU cluster interconnect technology and the development of a new generation of distributed data storage solutions based on PCIe/Ethernet fusion technology. For more detailed information, please visit their website at Clussys Inc..
-
-home page: https://clussys.com 
-<br>
-email: info@clussys.com
-
-<img src="../../images/ClussysWechatLogo.png" alt="image" width="160" height="auto">
