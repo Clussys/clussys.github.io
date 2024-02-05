@@ -9,12 +9,11 @@ At Clussys, we're on a mission to revolutionize networking with the cutting-edge
 
 # Blogs
 
-
-[2024-01-16 Clussys Solution to CXL Memory](blogs/20240116-cxlmem.md).
+- [2024-02-06 Forward Thinking on RDMA over CXL Protocol](blogs/20240206/index.md)
+- [2024-01-16 Clussys Solution to CXL Memory](blogs/20240106/index.md)
 
 
 # Roadmap
-
 
 
 # Contact Us
