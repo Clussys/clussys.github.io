@@ -10,8 +10,8 @@
 </head>
   <body>
     <header class="page-header" role="banner">
-        {% header.md %}
-      <h1 class="project-name">{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
+        {% include header.md %}
+        <h1 class="project-name">{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
       <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
     </header>
 
@@ -21,7 +21,7 @@
 
       <footer class="site-footer">
 
-        {% footer.md %}
+        {% include footer.md %}
 
         <div style="display: flex; justify-content: center; align-items: center; height: 100px;">
           <h2>About Clussys</h2>
