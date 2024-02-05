@@ -111,4 +111,7 @@ home page: https://clussys.com
 <br>
 email: info@clussys.com
 
-<img src="../../images/ClussysWechatLogo.png" alt="image" width="160" height="auto">
+<div style="display: flex; justify-content: center; align-items: center;">
+    <img src="../../images/ClussysWechatLogo.png" alt="image" width="160" height="auto">
+</div>
+

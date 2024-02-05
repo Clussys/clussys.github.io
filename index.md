@@ -2,11 +2,6 @@
 
 At Clussys, we're on a mission to revolutionize networking with the cutting-edge Compute Express Link (CXL) and CXL Switches with unparalleled scalability.
 
-[Home](index.md)
-
-# News
-
-
 # Blogs
 
 - [2024-02-06 Forward Thinking on RDMA over CXL Protocol](blogs/20240206/index.md)
