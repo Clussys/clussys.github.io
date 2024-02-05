@@ -9,9 +9,17 @@
     {% include head-custom.html %}
 </head>
   <body>
-    <header class="page-header" role="banner">      
-        <h1 class="project-name">{{ site.github.repository_name }}</h1>
-        <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
+    <header class="page-header" role="banner">    
+      
+      <div style="display: flex;">
+        <div style="margin-right: 10px" >
+            <img src="/images/clussys-logo-box.png" alt="image" width="100" height=auto>
+        </div>
+        <div>
+        At Clussys, we're on a mission to revolutionize networking with the cutting-edge Compute Express Link (CXL) and CXL Switches with unparalleled scalability.
+        </div>
+    </div>          
+        <h1 class="project-name">{{ site.title }}</h1>
     </header>
 
     <main id="content" class="main-content" role="main">
