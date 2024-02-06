@@ -1,8 +1,11 @@
 
 
 <div style="margin: 0; padding: 0;">
-<hr style="width: 50%; margin-left: auto; margin-right: auto;">
+<br>
+<br>
+<br>
 <small>
+<hr style="width: 50%; margin-left: auto; margin-right: auto;">
 <div style="display: flex; justify-content: center; align-items: center; height: 100px;">
     <h4>About Clussys</h4>
 </div>
