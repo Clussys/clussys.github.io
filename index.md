@@ -8,7 +8,7 @@ author: admin
 {% for post in site.posts %}
 - [{{ post.title }}]({{ post.url }}) ({{ post.date | date: "%Y %B %d" }}) <br>
 <small>
-{{ post.abstract | truncatewords: 160 }}
+{{ post.abstract | truncatewords: 80 }}
 </small>
 {% endfor %}
 
