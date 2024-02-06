@@ -6,5 +6,3 @@
     At Clussys, we're on a mission to revolutionize networking with the cutting-edge Compute Express Link (CXL) and CXL Switches with unparalleled scalability.
     </div>
 </div>
-
-***
