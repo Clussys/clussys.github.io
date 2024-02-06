@@ -8,18 +8,19 @@
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">    
 </head>
   
-  <body style="background-color: lightgrey;">
-    <!--
+<body>
+  <!--
     <header role="banner" style="background-color: #157878; height: 50px;">          
       <div style="display: flex; justify-content: center; align-items: center;">
         <a href="/" style="color: white;"> {{ site.title }} </a>
       </div>
     </header>
     -->
-    <main id="content" class="main-content" role="main" style="height: 100%; background-color: white; ">
+    <main id="content" class="main-content" role="main" style="height: 100%;">
       <div>
         {% include header.md %}
       </div>
+      <hr style="padding: 5pt;">
       <div>
         <a href="/"> {{ site.title }} </a> > {{ page.title }}
       </div>
