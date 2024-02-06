@@ -18,5 +18,10 @@ email: <a href="info@clussys.com" > info@clussys.com </a>
 <div style="display: flex; justify-content: center; align-items: center;">
     <img src="https://clussys.github.io/images/ClussysWechatLogo.png" alt="image" width="100" height="auto">
 </div>
+
+<div>
+<br>
+<p>&copy;2024 {{ site.title }} All rights reserved.</p>
+</div>
 </small>
 </div>
