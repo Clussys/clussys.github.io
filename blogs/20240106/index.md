@@ -23,7 +23,7 @@ Before understanding the rationale behind memory pooling, we should consider the
 
 #### 3)	Without CXL, can't we achieve memory pooling? Can't we use PCIe, or will UCIe be used in the future?
  
-![Alt text](images/cxlmem.png)
+![Alt text](cxlmem.png)
 
 To answer these questions, we need to understand the difference between memory and storage and how they are driven in the Linux kernel. Taking modern storage technology NVMe as an example, it exists as a PCIe device in standard Linux systems. After kernel boot-up, devices are discovered by scanning the PCIe device tree to find basic information (like PCI info), followed by loading the appropriate drivers, such as NVMe, and recognizing them as block devices. Block devices define modules related to input and output, like bio. System utilization of NVMe devices is achieved through a combination of bio and NVMe/PCIe input/output operations. Hence, NVMe devices are essentially block device abstractions of PCIe devices. The system interacts through block device objects, with underlying I/O and DMA technologies aimed at reducing latency and increasing device throughput.
 
@@ -59,7 +59,7 @@ While single RC memory expansion is a requirement, we consider support for multi
 
 Ultimately, these design principles are integrated to form the following system architecture:
 
-![Alt text](images/cxlarch.png) 
+![Alt text](cxlarch.png) 
 
 
 ## Test Results:
