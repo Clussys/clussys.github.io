@@ -19,6 +19,8 @@
 
         <div>
           <a href="/"> {{ site.title }} </a> > {{ page.title }}
+          <br>
+          {{ page.date | date: "%B %d, %Y" }} by {{ page.author }}
         </div>
 
       {{ content }}
