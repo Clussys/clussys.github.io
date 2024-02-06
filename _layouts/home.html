@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            grid-template-rows: auto 3fr auto; /* Updated: changed 1fr to 3fr */
+            grid-template-areas:
+                "header header"
+                "nav content"
+                "footer footer";
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            grid-area: header;
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+        }
+
+        nav {
+            grid-area: nav;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        main {
+            grid-area: content;
+            padding: 20px;
+        }
+
+        footer {
+            grid-area: footer;
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        {% include header.html %}
+    </header>
+    <nav>
+        <ul>
+        <a href="/">{{ site.title }}</a>
+        </ul>
+
+        {{ site.description }}
+          
+        <ul>
+            {% for tag in page.tags %}
+            {{ tag }}
+            {% endfor %}
+        </ul>
+
+    <!-- Add your navigation content here -->
+    </nav>
+    <main>
+        {{ content }}
+    </main>
+    <footer>
+        {% include header.html &}
+    </footer>
+</body>
+</html>
