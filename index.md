@@ -1,4 +1,5 @@
 ---
+layout: homepage
 title: Home
 author: admin
 ---
