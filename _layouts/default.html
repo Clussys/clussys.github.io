@@ -4,12 +4,7 @@
     <meta charset="UTF-8">
     <meta name="theme-color" content="#157878">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
-    <style>
-        footer {
-            grid-area: footer;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">    
 </head>
   <body>
     <header class="page-header" role="banner">          
@@ -26,7 +21,7 @@
 
       {{ content }}
 
-      <footer>
+      <footer class="page-footer">
 
         {% include footer.md %}
 
