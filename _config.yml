@@ -7,4 +7,4 @@ description: At Clussys, we're on a mission to revolutionize networking with the
 collections:
   posts:
     output: true
-    permalink: /:collection/:name
+    permalink: /_posts/:name
