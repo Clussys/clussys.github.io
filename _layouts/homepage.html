@@ -9,13 +9,13 @@
 </head>
   
   <body style="background-color: lightgrey;">
-      <header role="banner" style="background-color: #157878; height: 50px;">          
+    <header role="banner" style="background-color: #157878; height: 50px;">          
       <div style="display: flex; justify-content: center; align-items: center;">
-        <a href="/" style="color: white;"><h1>{{ site.title }}</h1></a>
+        <a href="/" style="color: white;"> {{ site.title }} </a>
       </div>
     </header>
 
-    <main id="content" class="main-content" role="main" style="height: 100%;">
+    <main id="content" class="main-content" role="main" style="height: 100%; background-color: white; ">
       <div>
         {% include header.md %}
       </div>
@@ -33,5 +33,6 @@
         </div>
       </footer>
     </main>
+
   </body>
 </html>
