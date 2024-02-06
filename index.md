@@ -6,12 +6,10 @@ author: admin
 # Blogs
 
 {% for post in site.posts %}
-- [{{ post.title }}]({{ post.url }}) ({{ post.date | date: "%Y %B %d" }})
-
+- [{{ post.title }}]({{ post.url }}) ({{ post.date | date: "%Y %B %d" }}) <br>
 <small>
- {{ post.abstract | truncatewords: 160 }}
+{{ post.abstract | truncatewords: 160 }}
 </small>
-
 {% endfor %}
 
 
