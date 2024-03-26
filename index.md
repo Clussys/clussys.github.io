@@ -18,6 +18,6 @@ author: admin
 
 # Resources
 
-- github: [https://github.com/Clussys]()
-- webpage: [https://clussys.com]()
-- contact: [info@clussys.com]()
+- github: [https://github.com/Clussys](https://github.com/Clussys)
+- webpage: [https://clussys.com](https://clussys.com)
+- contact: [info@clussys.com](info@clussys.com)
