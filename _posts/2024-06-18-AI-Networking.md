@@ -42,7 +42,7 @@ Let's first look at the hardware architecture of interconnects. Currently, inter
 
 Before we delve into a detailed analysis of the Ethernet and PCIe technology as interconnect technologies for AI networking, we first provide the conclusion: NVIDIA's NVLINK, Intel's proposed CXL, and the future UALink are all developed based on PCIe technology. In other words, discussing whether Ethernet is suitable for scale-up networks is essentially a meaningless question, which is also our viewpoint in previous analysis articles about the CXL and Ethernet debate. Today, we should focus more on the following two questions:
 
-1. Why do people choose PCIe instead of Ethernet?
+- Why do people choose PCIe instead of Ethernet?
 
 The difference in hardware controller design. PCIe or bus technology is a strongly consistent technology that requires data to be "mission-critical." High-speed data transmission can be achieved through an MMU unit on a master chip (CPU or MCU). This requires the PCIe controller itself to have basic data transmission protocol control capabilities or basic flow control logic. Ethernet is a very weak interconnect design because Ethernet hardware does not involve transmission reliability. The design philosophy of Ethernet is to delegate the reliability of data transmission to upper-layer protocols, namely connection-oriented TCP protocols or connectionless UDP protocols.
 
@@ -51,13 +51,13 @@ Due to these design differences, the physical logic of Ethernet is relatively si
 Due to the difference in hardware design, PCIe system IO operations require significantly fewer resources at the system level compared to Ethernet, making it a thinner stack layer.
 In summary, to achieve the same control capabilities, the costs are actually similar. Acceleration computing cores like CUDA, which consist of numerous small computing units, cannot bear the burden of large-scale data traffic processing. Therefore, NVLINK and UALINK based on PCIe technology have become the main choice paths.
 
-2. Why don't people directly use PCIe technology?
+- Why don't people directly use PCIe technology?
 
 This question was actually answered when NVIDIA first introduced NVLINK technology. PCIe is developing too slowly. Although PCIe technology has excellent compatibility, outstanding performance, and simple programmability, the problem also lies here. Due to the requirement for compatibility, the historical burden of the PCIe protocol is very heavy. Additionally, as a transmission protocol between the CPU and devices, PCIe needs to accommodate the diversity of various devices' IO operations, including synchronous, asynchronous, and granularity requirements. According to the bucket theory, this support for heterogeneous computing systems leads to the PCIe original design being very strict and high-standard, therefore more complicated.
 
 In the AI large model industry, what we need to achieve is high-speed communication between GPUs, with a relatively single computing system. The main purpose of GPU-to-GPU communication is to quickly transfer large-scale parameters in bulk. This transfer is generally strongly bound to the computation algorithm. Therefore, NVLink chose to retain part of the PCIe foundation while simplifying PCIe controller design principles, transforming into the NVLINK controller. This transformation is worth learning from for UALINK and CXL, which gives birth to one more question as below.
 
-3. How to design a private or general protocol based on PCIe?
+- How to design a private or general protocol based on PCIe?
 
 Based on the above analysis of NVLINK and PCIe, we can see that the future network architecture based on the PCIe protocol will retain the bus design principles of PCIe but will simplify or enhance the controller according to the computing scenario to achieve higher, faster, and stronger Olympic standards. We will provide a design scheme based on CXL, and of course, we welcome everyone to cooperate with us to customize their own networking computing protocols.
 
