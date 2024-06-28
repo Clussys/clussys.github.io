@@ -1,5 +1,5 @@
 ---
-title: Towards Tomorrow's AI Networking: RDMA and IP over CXL Fabric and More
+title: Towards Tomorrow's AI Networking&#58; RDMA and IP over CXL Fabric and More
 author: Leo
 abstract: Hello everyone, Today, we will share our insights on how our company views AI networking and the advancements we are making with CXL technology. We have titled our presentation "RDMA and TCP/IP over CXL Fabric and More." We will discuss the progress of the RDMA and TCP/IP protocols over CXL fabrics and their applications in high-performance GPU clusters and high-performance storage clusters in the field of artificial intelligence.
 
