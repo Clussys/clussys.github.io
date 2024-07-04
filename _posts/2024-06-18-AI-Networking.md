@@ -6,11 +6,12 @@ abstract: Hello everyone, Today, we will share our insights on how our company v
 ---
 
 # Towards Tomorrow's AI Networking: RDMA and TCP/IP over CXL Fabric and More
+
 By Dr. Fu Li, CTO of Clussys Inc.
 
-![Alt text](AI1.png)
-
 Hello everyone, Today, we will share our insights on how our company views AI networking and the advancements we are making with CXL technology. We have titled our presentation "RDMA and TCP/IP over CXL Fabric and More." We will discuss the progress of the RDMA and TCP/IP protocols over CXL fabrics and their applications in high-performance GPU clusters and high-performance storage clusters in the field of artificial intelligence.
+
+## 1. Introduction to Clussys: Towards Bigger Computing Era
 
 ![Alt text](AI2.png)
 
@@ -20,23 +21,21 @@ As shown in our image, in 2018, when we talked about computing power, it was rep
 
 We call this transformation in computing the "Bigger Computing Era." The core driving this era of transformation is the super-fast and super-efficient new interconnect systems.
 
-![Alt text](AI3.png)
+## 2. Bigger Computing Needs Faster Link and Better Networking
 
-Big computing requires faster connections and better network protocols. 
-
-Let's revisit the familiar TCP/IP protocol, which was designed and refined in the 1970s to address issues like scalability and stability in wide-area network communications. Today, however, in the field of artificial intelligence, we face short-distance interconnect challenges. In data centers, we rarely change the positions of servers, and due to the stable environment provided by data centers, our physical connections are relatively stable as well. Our needs have shifted from delivering information to a billion users over a wide-area network to interconnecting 10,000 GPUs or even 100,000 GPUs at high speeds. Although 100,000 GPUs sound like a lot, it is a small number compared to enterprises in the wide-area network field with billions of users. In fact, many AI companies face the practical problem of "how to efficiently and quickly interconnect clusters of thousands of GPUs." Given that NVIDIA currently uses 8 GPUs as a unit of computation, this only requires interconnecting 125 servers. If we consider the current "big computing" model with 72 GPUs as a unit, we only need to connect 15 cabinets. When we say "only," we don't mean that this connection is simple, but rather that the network demand has shifted from billions of connections to thousands of high-speed connections.
+Big computing requires faster connections and better network protocols. Let's revisit the familiar TCP/IP protocol, which was designed and refined in the 1970s to address issues like scalability and stability in wide-area network communications. Today, however, in the field of artificial intelligence, we face short-distance interconnect challenges. In data centers, we rarely change the positions of servers, and due to the stable environment provided by data centers, our physical connections are relatively stable as well. Our needs have shifted from delivering information to a billion users over a wide-area network to interconnecting 10,000 GPUs or even 100,000 GPUs at high speeds. Although 100,000 GPUs sound like a lot, it is a small number compared to enterprises in the wide-area network field with billions of users. In fact, many AI companies face the practical problem of "how to efficiently and quickly interconnect clusters of thousands of GPUs." Given that NVIDIA currently uses 8 GPUs as a unit of computation, this only requires interconnecting 125 servers. If we consider the current "big computing" model with 72 GPUs as a unit, we only need to connect 15 cabinets. When we say "only," we don't mean that this connection is simple, but rather that the network demand has shifted from billions of connections to thousands of high-speed connections.
 
 NVIDIA recognized this transformation early on. After acquiring RDMA and IB protocols, they developed their unique NVLink technology based on PCIe, using NVLink + IB to build large-scale computing systems. NVLink handles scale-up, while IB handles scale-out. Although the industry proposed the RoCE solution early on to build a more open system and compete with NVIDIA's RDMA/IB technology, it lagged behind NVLink in the scale-up interconnect domain by several steps.
 Recently, the concept of UALINK directly targets NVIDIA's NVLink core area. However, the long process of protocol standardization makes UALINK's future uncertain, bringing many uncertainties to GPU manufacturers. CXL, as a transitional or integrative technology between PCIe and UALINK, offers us a practical solution for the present and near future.
 
-![Alt text](AI4.png)
+## 3. Why LLM Computing need Scale-up Networking?
 
 Before we discuss how to leverage CXL technology, let's first review why large language models (LLMs) require scale-up networks. Simply put, LLMs are based on a computational theory that emphasizes the power of large-scale computation—using vast amounts of data and model parameters to predict human thought. While a large amount of data can be processed linearly and in partitions, the computation of model parameters, which involves two-dimensional matrices, requires a "scatter-gather-scatter" computational framework.
 
 In the realm of large models, there exists a Scaling Law, which essentially means "more computation yields better results." Similarly, in distributed computing architectures, there is also a Scaling Law: the proportion of serial computation directly determines the acceleration performance of the distributed system, and data transfer and synchronization are typical examples of serial computation. Therefore, the exchange of parameters between GPUs is a critical factor limiting the current large-scale GPU computation. We must address both the startup time (latency) and the transmission volume (throughput) of GPU-to-GPU communication.
 Next, let's explore how to solve these two problems.
 
-![Alt text](AI5.png)
+### 3.1 Revisit the interconnection Hardware: Link and Protocol
 
 Let's first look at the hardware architecture of interconnects. Currently, interconnects are primarily developed based on SerDes technology. Today, we won't discuss which SerDes technology is better but will focus on Ethernet transmission protocols and the PCIe bus and its derivatives or similar technologies based on SerDes technology. 
 
@@ -61,7 +60,7 @@ In the AI large model industry, what we need to achieve is high-speed communicat
 
 Based on the above analysis of NVLINK and PCIe, we can see that the future network architecture based on the PCIe protocol will retain the bus design principles of PCIe but will simplify or enhance the controller according to the computing scenario to achieve higher, faster, and stronger Olympic standards. We will provide a design scheme based on CXL, and of course, we welcome everyone to cooperate with us to customize their own networking computing protocols.
 
-![Alt text](AI6.png)
+### 3.2 Revisit the interconnection Software: Protocol and Applications
 
 After discussing the hardware architecture and development trends of interconnects, we will now analyze software protocols. Unlike hardware controllers, which are essentially unchangeable once designed, software protocols develop very quickly and are highly variable. When discussing software protocols, we must consider their integration with application software. We can broadly categorize application software into four categories: 1) the crown jewel HPC, 2) the industry buzz world LLM, 3) storage, and 4) cloud-native.
 
@@ -71,19 +70,24 @@ Today's focus is on 2) the industry hotspot LLM, which stands as a special case 
 
 Regarding hardware, we have Ethernet NICs and RDMA NICs (or IB NICs). RoCE, as an overlay technology, if implemented with hardware acceleration, would have a cost similar to that of IB NICs. This explains why RoCE, despite many years of development, has not ultimately replaced IB in the high-performance domain.
 
+## 4. RDMA over CXL is another alternative to RDMA over IB or NVLINK
 ![Alt text](AI7.png)
 
 Are there any other solutions? We consider RDMA over CXL a viable solution. Since GPUs are relatively closed systems and there is currently no non-NVLINK NVSWITCH solution, we will compare native RDMA (i.e., IB), RoCE, and our RDMA over CXL in the context of HPC and storage applications. Unlike IB and RoCE, we do not need network adapters; we can achieve efficient data migration by leveraging the built-in DMA and IO engines of CXL or PCIe. Compared to native RDMA, we have "moved" or "integrated" the functions of the IB card into the CXL switch chip, resulting in a low-latency, high-throughput solution. Let's emphasize again, with CXL based Switch SoC, no adapters are needed!
 
-![Alt text](AI8.png)
+### 4.1 RDMA over CXL Stack (No IB card is needed, similar to NVLINK)
 
 At the software driver layer, similar to the initial IB protocol, we build a unified memory communication model. We call this the NUPA architecture, which stands for Networking Unified Protocol Architecture. The design philosophy of NUPA is very similar to that of IB from the 1990s, except that we base it on PCIe technology rather than the PCI technology of the last century. If the CXL.cache protocol is supported, we can even provide ultra-low latency cache queues, achieving both low latency and high throughput simultaneously. Of course, utilizing PCIe's DMA to achieve CPU bypass is a fundamental feature of this technology, but we won't delve into that here.
 
 To facilitate customer programming and adapt to user programming environments, we build the NUPA ibdevice on top of the NUPA Core. By modifying and optimizing the underlying ibdevice, we ensure that customers do not need to worry about changes in the underlying link. Additionally, we provide netdev to achieve compatibility with cloud-native applications.
 
+### 4.2 RDMA over CXL Reference Design: CXL16 Storage and CXL24/48 GPU
+
 ![Alt text](AI9.png)
 
 Combining this knowledge, we have launched our first system. Through the ASM interface, we will provide 24 native PCIe Gen5.0x4 lanes at 256Gbps each. If our customized protocol is used, performance can reach up to 448Gbps. By leveraging switch stacking, we can achieve RDMA communication within a cabinet without any IB NICs, providing a network solution for distributed storage and GPU clusters.
+
+### 4.3 Software Emulations: BeeGFS over RDMA and CXL
 
 ![Alt text](AI10.png)
 
@@ -93,11 +97,11 @@ We emphasize once again that the core advantage of networking based on CXL and P
 
 Finally, let's return to PCIe, CXL, NVLink, and the previously mentioned UALINK technology. Although UALINK is currently at a very early stage, its proposal indeed gives the industry hope to counter NVIDIA's NVLINK. While this hope should have come earlier, it's better late than never.
 
-![Alt text](AI11.png)
+## 5. More on Future: UEC and UALINK
 
 Combining our years of technical research and experience accumulation, we position Clussys between IB and Ethernet MAC. We hope to build a new controller through PCIe, CXL, UCIe, and the future UALINK, or a controller compatible with both Ethernet Serdes and PCIe Serdes, to implement modern RDMA protocols, or perhaps UEC?
 
-![Alt text](AI12.png)
+![Alt text](AI11.png)
 
 Finally, thank you all for listening. We welcome everyone to follow our official WeChat account.
 
